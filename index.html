@@ -34,8 +34,13 @@
                 ><img src="images/icons/search.svg" alt="search"
               /></a>
             </div>
+            <div class="hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </nav>
-          <button class="header__inner-btn">
+          <button data-modal class="header__inner-btn">
             Request Demo<img
               class="header__inner-btn-img"
               src="images/icons/arrow.svg"
@@ -53,6 +58,48 @@
             <img
               class="slider__inner-wrapper-img"
               src="images/slider/slider-bg.jpg"
+              alt="background"
+            />
+            <div class="slider__inner-wrapper-caption">
+              <h1 class="slider__inner-wrapper-caption-title">
+                Save your data storage here.
+              </h1>
+              <p class="slider__inner-wrapper-caption-text">
+                Data Warehouse is a data storage area that has been tested for
+                security, so you can store your data here safely but not be
+                afraid of being stolen by others.
+              </p>
+
+              <a class="slider__inner-wrapper-caption-link" href="#!"
+                >Learn more</a
+              >
+            </div>
+          </div>
+          <div class="slider__inner-wrapper">
+            <img
+              class="slider__inner-wrapper-img"
+              src="images/aa98ce342844fe8f283bd3cb650425e7.jpg"
+              alt="background"
+            />
+            <div class="slider__inner-wrapper-caption">
+              <h1 class="slider__inner-wrapper-caption-title">
+                Save your data storage here.
+              </h1>
+              <p class="slider__inner-wrapper-caption-text">
+                Data Warehouse is a data storage area that has been tested for
+                security, so you can store your data here safely but not be
+                afraid of being stolen by others.
+              </p>
+
+              <a class="slider__inner-wrapper-caption-link" href="#!"
+                >Learn more</a
+              >
+            </div>
+          </div>
+          <div class="slider__inner-wrapper">
+            <img
+              class="slider__inner-wrapper-img"
+              src="images/ecb72bb7ad8ae7eac8ebc1ec5b965156.jpg"
               alt="background"
             />
             <div class="slider__inner-wrapper-caption">
@@ -158,7 +205,7 @@
           </div>
           <div class="try__inner-right">
             <a class="try__inner-right-link" href="#!">Learn more</a>
-            <button class="try__inner-right-btn">
+            <button data-modal class="try__inner-right-btn">
               Request Demo<img
                 class="header__inner-btn-img"
                 src="images/icons/arrow.svg"
@@ -261,5 +308,53 @@
         </div>
       </div>
     </footer>
+
+    <div class="overlay">
+      <div class="overlay__modal">
+        <div class="overlay__modal-bg">
+          <div class="overlay__modal-subtitle">Request Demo</div>
+          <form class="overlay__modal-form">
+            <div class="overlay__modal-left">
+              <input
+                required
+                class="overlay__modal-input"
+                type="name"
+                placeholder="Name"
+              />
+              <input
+                required
+                class="overlay__modal-input"
+                type="email"
+                placeholder="Email"
+              />
+              <input
+                required
+                class="overlay__modal-input"
+                type="url"
+                placeholder="Web"
+              />
+            </div>
+
+            <div class="overlay__modal-right">
+              <textarea
+                class="overlay__modal-right-textarea"
+                placeholder="Message"
+                maxlength="120"
+              ></textarea>
+              <span class="overlay__modal-right-line"></span>
+              <span class="overlay__modal-right-line"></span>
+            </div>
+            <input
+              href="#!"
+              type="submit"
+              class="overlay__modal-link"
+              value="Send"
+            />
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
   </body>
 </html>

@@ -1,0 +1,366 @@
+$text-color: rgba(33, 35, 83, 1)
+
+@mixin btn
+    display: inline-block
+    position: relative
+    color: rgb(33, 35, 83)
+    font-weight: 800
+    padding: 17px 70px 17px 29px
+    border: none
+    border-radius: 50px
+    background-color: rgba(255, 255, 255, 1)
+    box-shadow: 0px 5px 5px rgba(75, 93, 104, 0.1)
+    transition: 1s background-color
+    cursor: pointer
+    &:hover
+        background-color: rgb(213, 240, 247)
+
+@mixin link
+    display: inline-block
+    font-weight: 800
+    font-size: 18px
+    color: rgba(255, 255, 255, 1)
+    background-color: rgba(156, 105, 226, 1)
+    padding: 16px 37px
+    border-radius: 50px
+    transition: 1s background-color
+    &:hover
+        background-color: rgb(240, 99, 184)
+
+// ------------------global
+
+*
+    box-sizing: border-box
+
+body
+    font-size: 16px
+    color: rgba(75, 93, 104, 1)
+    margin: 0
+    font-family: 'Avenir LT 65'
+
+h1, h2, h3, h4, h5, h6, p
+    margin: 0
+
+ul, ol
+    list-style-type: none
+    padding: 0
+    margin: 0
+
+a
+    text-decoration: none
+
+.container
+    max-width: 1120px
+
+    margin: auto
+
+// ------------------header
+
+.header__inner
+    display: flex
+    align-items: center
+    padding: 50px 0
+    &-nav
+        display: flex
+        flex-grow: 1
+        &-lists
+            display: flex
+            padding-left: 121px
+        &-list
+            padding-right: 40px
+            &:nth-child(5)
+                padding-right: 0
+        &-link
+            color: rgba(75, 93, 104, 1)
+            transition: 1s all
+            &:hover
+                color: $text-color
+                font-weight: 800
+
+    &-btn
+        @include btn
+        &-img
+            position: absolute
+            padding-left: 21px
+            transition: 1s all
+    &-btn:hover &-btn-img
+        padding-left: 30px
+
+// ------------------slider
+
+.slider__inner
+    padding-bottom: 30px
+    &-wrapper
+        width: 100%
+        height: 540px
+        position: relative
+        &-img
+            max-width: 100%
+            height: auto
+        &-caption
+            position: absolute
+            top: 0
+            padding: 80px 0 0 104px
+            &-title
+                max-width: 640px
+                font-weight: 800
+                color: $text-color
+                font-size: 72px
+                line-height: 79px
+                padding-bottom: 18px
+            &-text
+                max-width: 380px
+                font-weight: 500
+                font-size: 18px
+                line-height: 29px
+                padding-bottom: 18px
+            &-link
+                @include link
+
+.slider__indicators
+    display: flex
+    justify-content: center
+    margin: 30px 0
+    &-dot
+        width: 8px
+        height: 8px
+        background-color: rgba(156, 105, 226, 0.2)
+        border-radius: 50px
+        margin-right: 8px
+        transition: 1s all
+        cursor: pointer
+        &:nth-child(3)
+            margin-right: 0
+        &:hover
+            background-color: rgba(156, 105, 226, 1)
+
+// ------------------features
+
+.features
+    padding: 57px 0 131px
+    &__top
+        max-width: 584px
+        margin: 0 auto
+        text-align: center
+        padding-bottom: 71px
+        &-title
+            font-weight: 800
+            font-size: 40px
+            line-height: 52px
+            color: $text-color
+            padding-bottom: 26px
+        &-text
+            font-weight: 500
+            font-size: 18px
+            line-height: 29px
+
+.features__items
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+
+.background--first
+    background: url(../images/features/feature1.svg) 4% 49% no-repeat, url(../images/vector/vector1.svg) 88% 8% no-repeat, url(../images/vector/ellipse1.svg) 73% 15% no-repeat, url(../images/features/rectangle1.svg) 84% 16% no-repeat
+
+.background--second
+    background: url(../images/features/feature2.svg) 4% 49% no-repeat, url(../images/vector/vector2.svg) 63% 14% no-repeat, url(../images/vector/ellipse2.svg) 73% 15% no-repeat, url(../images/features/rectangle1.svg) 84% 16% no-repeat
+
+.background--third
+    background: url(../images/features/feature3.svg) 4% 49% no-repeat, url(../images/vector/ellipse3.svg) 90% 8% no-repeat, url(../images/features/rectangle2.svg) 84% 16% no-repeat
+
+.background--fourth
+    background: url(../images/features/feature4.svg) 4% 49% no-repeat, url(../images/vector/vector4.svg) 86% 93% no-repeat, url(../images/features/rectangle2.svg) 84% 16% no-repeat
+
+.features__item
+    width: 540px
+    min-height: 360px
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    padding: 50px 50px 33px 280px
+    margin-bottom: 80px
+    &:nth-child(n+3)
+        margin-bottom: 0
+    &-title
+        font-weight: 500
+        font-size: 24px
+        line-height: 31px
+        color: $text-color
+    &-text
+        line-height: 26px
+    &-btn
+        display: inline-block
+        font-weight: 800
+        color: $text-color
+        position: relative
+        &-img
+            position: absolute
+            padding-left: 21px
+            transition: 1s all
+    &-btn:hover .header__inner-btn-img
+        padding-left: 30px
+
+// ------------------try
+
+.try
+    border-top: 2px solid rgba(156, 105, 226, 0.2)
+    padding: 100px 0 75px
+    &__inner
+        display: flex
+        justify-content: space-between
+        align-items: center
+        &-left-title
+            font-weight: 800
+            font-size: 40px
+            line-height: 52px
+            color: $text-color
+        &-left-text
+            font-weight: 500
+            font-size: 18px
+            line-height: 29px
+        &-right-link
+            @include link
+        &-right-btn
+            margin-left: 30px
+            @include btn
+            &-img
+                position: absolute
+                padding-left: 21px
+                transition: 1s all
+        &-right-btn:hover .header__inner-btn-img
+            padding-left: 30px
+
+// ------------------footer
+
+.footer
+    color: $text-color
+    padding: 75px 0 50px
+    &__inner
+        display: flex
+        justify-content: space-between
+        padding-bottom: 93px
+        &-info-logo
+            display: flex
+            align-items: center
+            color: $text-color
+            margin-bottom: 66px
+        &-info-text
+            font-weight: 800
+            font-size: 20px
+            padding-left: 20px
+        &-info-adress, &-info-email, &-info-tel
+            font-weight: 500
+            line-height: 29px
+            color: $text-color
+        &-info-email, &-info-tel
+            transition: 1s color
+            &:hover
+                color: rgb(156, 105, 226)
+        &-info-adress:nth-child(2)
+            padding-bottom: 10px
+    &__lists-title, &__social-title
+        font-weight: 900
+        line-height: 44px
+        padding-bottom: 30px
+    &__lists-link
+        color: $text-color
+        font-weight: 500
+        line-height: 40px
+        transition: 1s color
+        &:hover
+            color: rgb(156, 105, 226)
+    &__social-media-icon
+        padding: 17px
+        margin-left: 15px
+        background-color: rgba(33, 35, 83, 0.15)
+        border-radius: 50px
+        transition: 1s background-color
+        &:nth-child(1)
+            padding: 15px 21px
+            margin-left: 0
+        &:nth-child(2)
+            padding: 17px 16px
+        &:hover
+            background-color: rgb(156, 105, 226)
+    &__bottom
+        font-size: 12px
+        line-height: 22px
+
+// ------------------media
+
+@media ( max-width: 1160px )
+    // global
+    .container
+        margin: 0 10px
+
+    // features
+    .features__items
+        justify-content: center
+
+@media ( max-width: 769px )
+    // global
+    body
+        background-color: rgba(104, 201, 186, 0.04)
+
+    // header
+    .header__inner
+        padding: 50px 0 0 0
+        &-logo
+            display: flex
+            flex-grow: 1
+        &-nav
+            flex-direction: row-reverse
+        &-nav-lists
+            display: none
+        &-btn
+            display: none
+
+    // slider
+    .slider
+        display: none
+
+    // features
+    .features__top
+        padding-bottom: 30px
+    .features__item:nth-child(n+3)
+        margin-bottom: 80px
+
+    // try
+    .try
+        display: none
+
+    // footer
+    .footer
+        background-color: rgba(156, 105, 226, 0.1)
+        padding: 32px 0 0 0
+        &__inner
+            flex-direction: column
+            text-align: center
+            padding-bottom: 25px
+        &__inner-info-list
+            padding-bottom: 25px
+        &__inner-info-logo
+            display: none
+        &__social-title
+            display: none
+        &__lists
+            display: none
+        &__bottom
+            display: none
+
+@media ( max-width: 600px )
+    // features
+    .features
+        padding: 66px 0 48px
+        &__top
+            text-align: left
+        &__item:nth-child(n+2)
+            display: none
+        &__item
+            width: 335px
+            min-height: 500px
+            padding: 220px 40px 47px 40px
+            margin-bottom: 0
+
+    .background--first
+        background: url(../images/features/feature1.svg) 36% 7% no-repeat, url(../images/vector/vector1.svg) 88% 8% no-repeat, url(../images/vector/ellipse1.svg) 73% 15% no-repeat, url(../images/features/rectangle3.svg) 84% 98% no-repeat

@@ -32,17 +32,44 @@ $text-color: rgba(33, 35, 83, 1)
 
 // ------------------global
 
+@font-face
+    font-family: 'Avenir LT'
+    src: url('../fonts/AvenirLT-Black.eot')
+    src: url('../fonts/AvenirLT-Black.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AvenirLT-Black.woff') format('woff'),
+    url('../fonts/AvenirLT-Black.ttf') format('truetype') 
+    font-weight: 800
+    font-style: normal
+
+@font-face
+    font-family: 'Avenir LT'
+    src: url('../fonts/AvenirLT-Medium.eot')
+    src: url('../fonts/AvenirLT-Medium.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AvenirLT-Medium.woff') format('woff'),
+    url('../fonts/AvenirLT-Medium.ttf') format('truetype') 
+    font-weight: 500
+    font-style: normal
+
+@font-face
+    font-family: 'Avenir LT'
+    src: url('../fonts/AvenirLT-Roman.eot')
+    src: url('../fonts/AvenirLT-Roman.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AvenirLT-Roman.woff') format('woff'),
+    url('../fonts/AvenirLT-Roman.ttf') format('truetype') 
+    font-weight: 400
+    font-style: normal
+
 *
     box-sizing: border-box
 
 html
-    background: linear-gradient(180deg, #F6FAFD 0%, #FFFFFF 19.4%)
+    background: linear-gradient(180deg, rgb(246, 250, 253) 0%, rgb(255, 255, 255) 19.4%)
 
 body
+    font-family: 'Avenir LT', sans-serif
     font-size: 16px
     color: rgba(75, 93, 104, 1)
     margin: 0
-    font-family: 'Avenir LT 65'
 
 h1, h2, h3, h4, h5, h6, p
     margin: 0
@@ -61,81 +88,91 @@ a
     margin: auto
 
 // ------------------header
-
-.header__inner
+.header
+    padding: 50px 0
+.header-inner
     display: flex
     align-items: center
-    padding: 50px 0
-    &-nav
+    &__logo
+        width: 49px
+        height: 35px
+    &__img
+        width: 100%
+    &__nav
         display: flex
         flex-grow: 1
-        &-lists
-            display: flex
-            padding-left: 121px
-        &-list
-            padding-right: 40px
-            &:nth-child(5)
-                padding-right: 0
-        &-link
-            color: rgba(75, 93, 104, 1)
-            transition: 1s all
-            &:hover
-                color: $text-color
-                font-weight: 800
-
-    &-btn
+    &__lists
+        display: flex
+        padding-left: 121px
+    &__list
+        padding-right: 40px
+        &:nth-child(5)
+            padding-right: 0
+    &__link
+        display: inline-block
+        color: rgba(75, 93, 104, 1)
+        font-weight: 500
+        transition: 0.6s ease
+        &:hover
+            color: $text-color
+            font-weight: 800
+    &__btn
         @include btn
-        &-img
+        &-arrow
             position: absolute
             padding-left: 21px
             transition: 1s all
-    &-btn:hover &-btn-img
+    &__btn:hover &__btn-arrow
         padding-left: 30px
 
-.hamburger
+.header-hamburger
     display: none
 
 // ------------------slider
 .slider
-    padding-bottom: 34px
+    padding-bottom: 87px
     &__inner
         padding-bottom: 30px
-        &-wrapper
-            position: relative
-            &-img
-                max-width: 100%
-                height: auto
-                border-radius: 50px
-            &-caption
-                position: absolute
-                top: 0
-                padding: 80px 0 0 104px
-                &-title
-                    max-width: 640px
-                    font-weight: 800
-                    color: $text-color
-                    font-size: 72px
-                    line-height: 79px
-                    padding-bottom: 18px
-                &-text
-                    max-width: 380px
-                    font-weight: 500
-                    font-size: 18px
-                    line-height: 29px
-                    padding-bottom: 18px
-                &-link
-                    @include link
+.slider-wrapper
+    max-height: 560px
+    position: relative
+    overflow: hidden
+    border-radius: 50px
+    &__img
+        max-width: 100%
+        height: auto
+        object-fit: cover
+        border-radius: 50px
+    &__caption
+        position: absolute
+        top: 0
+        padding: 80px 0 0 104px
+    &__title
+        max-width: 640px
+        font-weight: 800
+        color: $text-color
+        font-size: 72px
+        line-height: 79px
+        padding-bottom: 18px
+    &__text
+        max-width: 380px
+        font-weight: 500
+        font-size: 18px
+        line-height: 29px
+        padding-bottom: 18px
+    &__link
+        @include link
 
-.slider__indicators
+.slider-indicators
     display: flex
     justify-content: center
-    &-dot
+    &__dot
         width: 8px
         height: 8px
         background-color: rgba(156, 105, 226, 0.2)
         border-radius: 50px
         margin-right: 8px
-        transition: 1s all
+        transition: 0.6s all
         cursor: pointer
         &:nth-child(3)
             margin-right: 0
@@ -143,47 +180,46 @@ a
             background-color: rgba(156, 105, 226, 1)
 
 // ------------------features
-
 .features
-    padding: 57px 0 131px
+    padding-bottom: 131px
     &__top
         max-width: 584px
         margin: 0 auto
         text-align: center
         padding-bottom: 71px
-        &-title
-            font-weight: 800
-            font-size: 40px
-            line-height: 52px
-            color: $text-color
-            padding-bottom: 26px
-        &-text
-            font-weight: 500
-            font-size: 18px
-            line-height: 29px
+    &__title
+        font-weight: 800
+        font-size: 40px
+        line-height: 52px
+        color: $text-color
+        padding-bottom: 26px
+    &__text
+        font-weight: 500
+        font-size: 18px
+        line-height: 29px
 
-.features__items
+.features-items
     display: flex
     flex-wrap: wrap
     justify-content: space-between
 
-.background--first
+.features-item_background_first
     background: url(../images/features/feature1.svg) 4% 49% no-repeat,
     url(../images/vector/vector1.svg) 88% 8% no-repeat, url(../images/vector/ellipse1.svg) 73% 15% no-repeat, url(../images/features/rectangle1.svg) 84% 16% no-repeat
 
-.background--second
+.features-item_background_second
     background: url(../images/features/feature2.svg) 4% 49% no-repeat,
     url(../images/vector/vector2.svg) 63% 14% no-repeat, url(../images/vector/ellipse2.svg) 73% 15% no-repeat, url(../images/features/rectangle1.svg) 84% 16% no-repeat
 
-.background--third
+.features-item_background_third
     background: url(../images/features/feature3.svg) 4% 68% no-repeat,
     url(../images/vector/ellipse3.svg) 90% 8% no-repeat, url(../images/features/rectangle2.svg) 84% 16% no-repeat
 
-.background--fourth
+.features-item_background_fourth
     background: url(../images/features/feature4.svg) 4% 49% no-repeat,
     url(../images/vector/vector4.svg) 86% 93% no-repeat, url(../images/features/rectangle2.svg) 84% 16% no-repeat
 
-.features__item
+.features-item
     width: 540px
     min-height: 360px
     display: flex
@@ -193,14 +229,15 @@ a
     margin-bottom: 80px
     &:nth-child(n+3)
         margin-bottom: 0
-    &-title
+    &__title
         font-weight: 500
         font-size: 24px
         line-height: 31px
         color: $text-color
-    &-text
+    &__text
         line-height: 26px
-    &-btn
+        font-weight: 400
+    &__btn
         display: inline-block
         font-weight: 800
         color: $text-color
@@ -209,79 +246,87 @@ a
             position: absolute
             padding-left: 21px
             transition: 1s all
-    &-btn:hover .header__inner-btn-img
+    &__btn:hover .header-inner__btn-arrow
         padding-left: 30px
 
 // ------------------try
-
 .try
     border-top: 2px solid rgba(156, 105, 226, 0.2)
-    padding: 100px 0 75px
-    &__inner
-        display: flex
-        justify-content: space-between
-        align-items: center
-        &-left-title
-            font-weight: 800
-            font-size: 40px
-            line-height: 52px
-            color: $text-color
-        &-left-text
-            font-weight: 500
-            font-size: 18px
-            line-height: 29px
-        &-right-link
-            @include link
-        &-right-btn
-            margin-left: 30px
-            @include btn
-            &-img
-                position: absolute
-                padding-left: 21px
-                transition: 1s all
-        &-right-btn:hover .header__inner-btn-img
-            padding-left: 30px
+    padding: 100px 0 153px
+.try-inner
+    display: flex
+    justify-content: space-between
+    align-items: center
+    &__title
+        font-weight: 800
+        font-size: 40px
+        line-height: 52px
+        color: $text-color
+    &__text
+        font-weight: 500
+        font-size: 18px
+        line-height: 29px
+    &__link
+        @include link
+    &__btn
+        margin-left: 30px
+        @include btn
+        &-arrow
+            position: absolute
+            padding-left: 21px
+            transition: 1s all
+    &__btn:hover .header-inner__btn-arrow
+        padding-left: 30px
 
 // ------------------footer
-
 .footer
     color: $text-color
-    padding: 75px 0 50px
-    &__inner
+    padding-bottom: 48px
+.footer-inner
+    display: flex
+    justify-content: space-between
+    padding-bottom: 93px
+
+.footer-info
+    &__logo
         display: flex
-        justify-content: space-between
-        padding-bottom: 93px
-        &-info-logo
-            display: flex
-            align-items: center
-            color: $text-color
-            margin-bottom: 66px
-        &-info-text
-            font-weight: 800
-            font-size: 20px
-            padding-left: 20px
-        &-info-adress, &-info-email, &-info-tel
-            font-weight: 500
-            line-height: 29px
-            color: $text-color
-        &-info-email, &-info-tel
-            transition: 1s color
-            &:hover
-                color: rgb(156, 105, 226)
-        &-info-adress:nth-child(2)
-            padding-bottom: 10px
-    &__lists-title, &__social-title
-        font-weight: 900
+        align-items: center
+        color: $text-color
+        margin-bottom: 66px
+    &__text
+        font-weight: 800
+        font-size: 20px
+        padding-left: 20px
+    &__adress, &__email, &__tel
+        font-weight: 500
+        line-height: 29px
+        color: $text-color
+    &__email, &__tel
+        transition: 0.6s color
+        &:hover
+            color: rgb(156, 105, 226)
+    &__adress:nth-child(2)
+        padding-bottom: 10px
+
+.footer-lists
+    &__title, &__title
+        font-weight: 800
         line-height: 44px
         padding-bottom: 30px
-    &__lists-link
+    &__link
         color: $text-color
         font-weight: 500
         line-height: 40px
-        transition: 1s color
+        transition: 0.6s color
         &:hover
             color: rgb(156, 105, 226)
-    &__social-media-icon
+
+.footer-social
+    &__title
+        font-weight: 800
+        line-height: 44px
+        padding-bottom: 30px
+    &__icon
         padding: 17px
         margin-left: 15px
         background-color: rgba(33, 35, 83, 0.15)
@@ -294,12 +339,12 @@ a
             padding: 17px 16px
         &:hover
             background-color: rgb(156, 105, 226)
-    &__bottom
-        font-size: 12px
-        line-height: 22px
+.footer-bottom
+    font-size: 12px
+    line-height: 22px
+    font-weight: 400
 
 // ------------------modal
-
 .overlay
     display: none
     position: fixed
@@ -307,77 +352,78 @@ a
     height: 100%
     top: 0
     background-color: rgba(0, 0, 0, 0.4)
-    &__modal
-        position: absolute
-        top: 50%
-        left: 50%
-        transform: translate(-50%, -50%)
-        width: 1120px
-        min-height: 560px
-        background: repeating-linear-gradient( 122deg, rgba(104, 201, 186, 1), rgba(104, 201, 186, 1) 11px,white 10px, white 2em)
-        border-radius: 50px
-        &-bg
-            width: 1050px
-            height: 500px
-            background-color: rgb(255, 255, 255)
-            border-radius: 50px
-            padding: 34px
-            margin: 34px
 
-        &-subtitle
-            font-weight: 800
-            font-size: 40px
+.overlay-modal
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    width: 1120px
+    min-height: 560px
+    background: repeating-linear-gradient( 122deg, rgba(104, 201, 186, 1), rgba(104, 201, 186, 1) 11px,white 10px, white 2em)
+    border-radius: 50px
+    &__bg
+        width: 1050px
+        height: 500px
+        background-color: rgb(255, 255, 255)
+        border-radius: 50px
+        padding: 34px
+        margin: 34px
+
+    &__subtitle
+        font-weight: 800
+        font-size: 40px
+        color: rgba(33, 35, 83, 1)
+        text-align: center
+        padding-bottom: 30px
+    &__form
+        display: flex
+        justify-content: space-between
+    &__input
+        width: 476px
+        height: 80px
+        padding-top: 30px
+        border: none
+        border-bottom: 2px solid rgba(156, 105, 226, 0.2)
+        margin-bottom: 6px
+        outline: none
+        &::placeholder
+            font-weight: 700
+            font-style: 16px
             color: rgba(33, 35, 83, 1)
-            text-align: center
-            padding-bottom: 30px
-        &-form
-            display: flex
-            justify-content: space-between
-        &-input
+    &__right
+        position: relative
+        &-textarea
             width: 476px
-            height: 80px
-            padding-top: 30px
+            height: 252px
+            font-size: 20px
+            line-height: 88px
+            padding: 9px 15px 0 15px
             border: none
             border-bottom: 2px solid rgba(156, 105, 226, 0.2)
-            margin-bottom: 6px
+            resize: none
+            overflow: hidden
             outline: none
             &::placeholder
                 font-weight: 700
-                font-style: 16px
+                font-size: 16px
                 color: rgba(33, 35, 83, 1)
-        &-right
-            position: relative
-            &-textarea
-                width: 476px
-                height: 252px
-                font-size: 20px
-                line-height: 88px
-                padding: 9px 15px 0 15px
-                border: none
-                border-bottom: 2px solid rgba(156, 105, 226, 0.2)
-                resize: none
-                overflow: hidden
-                outline: none
-                &::placeholder
-                    font-weight: 700
-                    font-size: 16px
-                    color: rgba(33, 35, 83, 1)
-            &-line
-                position: absolute
-                width: 476px
-                height: 2px
-                background-color: rgba(156, 105, 226, 0.2)
-                top: 78px
-                left: 0
-                &:nth-child(2)
-                    top: 163px
-        &-link
+        &-line
             position: absolute
-            right: 75px
-            bottom: 65px
-            border: none
-            width: 170px
-            @include link
+            width: 476px
+            height: 2px
+            background-color: rgba(156, 105, 226, 0.2)
+            top: 78px
+            left: 0
+            &:nth-child(2)
+                top: 163px
+    &__link
+        position: absolute
+        right: 75px
+        bottom: 65px
+        border: none
+        width: 170px
+        @include link
 
 .show
     display: block
@@ -385,32 +431,59 @@ a
     display: none
 
 // ------------------media
-
 @media ( max-width: 1160px )
     // global
     .container
         margin: 0 10px
 
+    // slider
+    .slider-wrapper
+        max-height: 360px
+        &__caption
+            position: absolute
+            top: 0
+            padding: 30px 0 0 46px
+        &__title
+            max-width: 300px
+            font-size: 32px
+            line-height: 35px
+        &__text
+            max-width: 380px
+            font-weight: 500
+            font-size: 16px
+            line-height: 21px
+
+    .slider-indicators__dot
+        width: 60px
+
     // features
-    .features__items
+    .features
+        padding-bottom: 90px
+
+    .features-items
         justify-content: center
+
+    .features-item:nth-child(3n)
+        margin-bottom: 80px
 
 @media ( max-width: 769px )
     // global
+    html
+        background: none
+
     body
         background-color: rgba(104, 201, 186, 0.04)
 
     // header
-    .header__inner
-        padding: 50px 0 0 0
-        &-logo
+    .header-inner
+        &__logo
             display: flex
             flex-grow: 1
-        &-nav
+        &__nav
             flex-direction: row-reverse
-        &-btn
+        &__btn
             display: none
-        &-nav-lists
+        &__lists
             position: fixed
             flex-direction: column
             justify-content: center
@@ -418,7 +491,7 @@ a
             align-items: center
             top: 0
             left: -100%
-            width: 50%
+            width: 60%
             height: 100vh
             padding: 20px 15px
             background-color: rgb(156, 105, 226)
@@ -426,31 +499,31 @@ a
             z-index: 4
             &-active
                 left: 0
-        &-nav-list
+        &__list
             padding-right: 0
-        &-nav-link
+        &__link
             font-size: 20px
             color: rgb(255, 255, 255)
-        &-nav-search
+        &__search
             margin-right: 76px
 
-    .hamburger
+    .header-hamburger
         display: block
         position: absolute
         right: 20px
-        top: 17%
+        top: 68px
         transform: translateY(-50%)
         width: 28px
         height: 25px
-        span
+        &__span
             display: block
             height: 2px
             width: 100%
             background-color: rgba(156, 105, 226, 1)
             margin-bottom: 6px
             transition: 0.5s all
-        &-active
-            span
+        &__active
+            .header-hamburger__span
                 margin-bottom: -2px
                 &:nth-child(1)
                     transform: rotate(-45deg)
@@ -460,14 +533,12 @@ a
                     transform: rotate(45deg)
 
     // slider
-    .slider
-        display: none
+    .slider-wrapper
+        max-height: 290px
 
     // features
     .features__top
         padding-bottom: 30px
-    .features__item:nth-child(n+3)
-        margin-bottom: 80px
 
     // try
     .try
@@ -477,36 +548,45 @@ a
     .footer
         background-color: rgba(156, 105, 226, 0.1)
         padding: 32px 0 0 0
-        &__inner
-            flex-direction: column
-            text-align: center
+
+    .footer-inner
+        flex-direction: column
+        text-align: center
+        padding-bottom: 25px
+
+    .footer-info
+        &__list
             padding-bottom: 25px
-        &__inner-info-list
-            padding-bottom: 25px
-        &__inner-info-logo
+        &__logo
             display: none
-        &__social-title
-            display: none
-        &__lists
-            display: none
-        &__bottom
-            display: none
+
+    .footer-lists
+        display: none
+
+    .footer-bottom
+        display: none
+
+    .footer-social__title
+        display: none
 
 @media ( max-width: 600px )
-    // features
-    .features
-        padding: 66px 0 48px
-        &__top
-            text-align: left
-        &__item:nth-child(n+2)
-            display: none
-        &__item
-            width: 335px
-            min-height: 500px
-            padding: 220px 40px 47px 40px
-            margin-bottom: 0
+    // slider
+    .slider
+        display: none
 
-    .background--first
+    // features
+    .features__top
+        text-align: left
+
+    .features-item
+        width: 335px
+        min-height: 500px
+        padding: 220px 40px 47px 40px
+        margin-bottom: 0
+        &:nth-child(n+2)
+            display: none
+
+    .features-item_background_first
         background: url(../images/features/feature1.svg) 36% 7% no-repeat,
         url(../images/vector/vector1.svg) 88% 8% no-repeat, 
         url(../images/vector/ellipse1.svg) 73% 15% no-repeat, 

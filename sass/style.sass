@@ -34,10 +34,10 @@ $text-color: rgba(33, 35, 83, 1)
 
 @font-face
     font-family: 'Avenir LT'
-    src: url('../fonts/AvenirLT-Black.eot')
-    src: url('../fonts/AvenirLT-Black.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/AvenirLT-Black.woff') format('woff'),
-    url('../fonts/AvenirLT-Black.ttf') format('truetype') 
+    src: url('../fonts/AvenirLT-Heavy.eot')
+    src: url('../fonts/AvenirLT-Heavy.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AvenirLT-Heavy.woff') format('woff'),
+    url('../fonts/AvenirLT-Heavy.ttf') format('truetype') 
     font-weight: 800
     font-style: normal
 
@@ -66,7 +66,7 @@ html
     background: linear-gradient(180deg, rgb(246, 250, 253) 0%, rgb(255, 255, 255) 19.4%)
 
 body
-    font-family: 'Avenir LT', sans-serif
+    font-family: 'Avenir LT'
     font-size: 16px
     color: rgba(75, 93, 104, 1)
     margin: 0
@@ -115,7 +115,7 @@ a
         transition: 0.6s ease
         &:hover
             color: $text-color
-            font-weight: 800
+            text-shadow: 0 0 0.01px
     &__btn
         @include btn
         &-arrow
@@ -253,30 +253,30 @@ a
 .try
     border-top: 2px solid rgba(156, 105, 226, 0.2)
     padding: 100px 0 153px
-.try-inner
-    display: flex
-    justify-content: space-between
-    align-items: center
-    &__title
-        font-weight: 800
-        font-size: 40px
-        line-height: 52px
-        color: $text-color
-    &__text
-        font-weight: 500
-        font-size: 18px
-        line-height: 29px
-    &__link
-        @include link
-    &__btn
-        margin-left: 30px
-        @include btn
-        &-arrow
-            position: absolute
-            padding-left: 21px
-            transition: 1s all
-    &__btn:hover .header-inner__btn-arrow
-        padding-left: 30px
+    &-inner
+        display: flex
+        justify-content: space-between
+        align-items: center
+        &__title
+            font-weight: 800
+            font-size: 40px
+            line-height: 52px
+            color: $text-color
+        &__text
+            font-weight: 500
+            font-size: 18px
+            line-height: 29px
+        &__link
+            @include link
+        &__btn
+            margin-left: 30px
+            @include btn
+            &-arrow
+                position: absolute
+                padding-left: 21px
+                transition: 1s all
+        &__btn:hover .header-inner__btn-arrow
+            padding-left: 30px
 
 // ------------------footer
 .footer
@@ -400,7 +400,8 @@ a
             line-height: 88px
             padding: 9px 15px 0 15px
             border: none
-            border-bottom: 2px solid rgba(156, 105, 226, 0.2)
+            background-image: linear-gradient(transparent, transparent calc(7.6ch - 2px), rgba(156, 105, 226, 0.2) 0px)
+            background-size: 100% 7.6ch
             resize: none
             overflow: hidden
             outline: none
@@ -408,15 +409,6 @@ a
                 font-weight: 700
                 font-size: 16px
                 color: rgba(33, 35, 83, 1)
-        &-line
-            position: absolute
-            width: 476px
-            height: 2px
-            background-color: rgba(156, 105, 226, 0.2)
-            top: 78px
-            left: 0
-            &:nth-child(2)
-                top: 163px
     &__link
         position: absolute
         right: 75px
